@@ -37,3 +37,5 @@ npm run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+[github: Vue-TypeScript项目示例](https://github.com/GeekQiaQia/vueWithTSPro.git)
