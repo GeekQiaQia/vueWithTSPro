@@ -9,6 +9,13 @@
     ]
   },
   "rules": {
+    "max-line-length":[
+      true,
+      {
+        "limit": 120,
+        "ignore-pattern": "^import [^,]+ from |^export | implements"
+      }
+    ],
     "indent": [true, "spaces", 2],// 使用制表符或空格强制缩进。
     "quotemark": false, // 字符串文字需要单引号或双引号。
     "member-access": false, // 需要类成员的显式可见性声明。

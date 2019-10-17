@@ -1,4 +1,15 @@
 # vuecli3tspro
+   前端技术栈
+   
+    {
+    "vue-cli3":@3.8.2,
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3",
+    "vuex": "^3.0.1",
+    "axios": "^0.19.0",
+    "typescript": "^3.4.3",
+     
+    }
 
 ## Project setup
 ```

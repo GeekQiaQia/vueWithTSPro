@@ -2,7 +2,7 @@
   "name": "vuecli3tspro",
   "version": "0.1.0",
   "private": true,
-   "main": "./index",
+  "main": "./index",
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
@@ -11,7 +11,10 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@types/js-cookie": "^2.2.4",
+    "axios": "^0.19.0",
     "core-js": "^2.6.5",
+    "js-cookie": "^2.2.1",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
     "vue-property-decorator": "^8.1.0",
