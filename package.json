@@ -6,6 +6,8 @@
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
+    "tep": "node scripts/template",
+    "com": "node scripts/component",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit"
@@ -19,7 +21,8 @@
     "vue-class-component": "^7.0.2",
     "vue-property-decorator": "^8.1.0",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-class": "^0.3.2"
   },
   "devDependencies": {
     "@types/chai": "^4.1.0",
