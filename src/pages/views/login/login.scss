@@ -1,10 +1,65 @@
 @import "../../../assets/scss/variables.scss";
+@import "../../../assets/scss/common.scss";
 
 .login-wrap {
-  width: 100%;
+  width: 50%;
+  left: 50%;
+  position: absolute;
+  margin-left: -25%;
+ .box{
+    width: 410px;
+   float:left;
+    min-height: 360px;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(0,0,0,.08);
+    margin: 40px 20px 0 20px;
+    box-sizing: border-box;
+    padding: 15px;
+   .loginForm{
+     margin-top: 78px;
+   }
+  }
+  .content-container-right{
+    width: 490px;
+    height: 360px;
+    float: left;
+    margin-top: 40px;
+    /* margin: 40px 20px 0 20px; */
+    //box-shadow: 0 0 6px rgba(0,0,0,.08);
+    img{
+      width: 480px;
+      height: 360px;
+    }
+  }
 }
-.el-input {
-  width: 320px;
+
+.header{
+  border-bottom: 1px solid #e5e5e5;
+  padding: 50px 0 21px;
+  height: 24px;
+  text-align: left;
+  .header-logo{
+    float: left;
+    width: 70px;
+    height: 41px;
+    position: relative;
+    background: url(../../../assets/logo.png) no-repeat;
+    background-size: 98% 140%;
+  }
+  .header-title{
+    position: relative;
+    top: 7px;
+    font-size: 16px;
+    color: #333;
+    padding-left: 10px;
+    margin: 0 100px 0 80px;
+    border-left: 1px solid #e8e8e8;
+  }
+}
+
+.input264 {
+  width: 264px;
+  height:30px;
 }
 .el-textarea {
   width: 320px;
