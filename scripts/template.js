@@ -35,7 +35,7 @@ const VueTep = `<template>
 // ts 模版
 const tsTep = `import { Component, Vue } from "vue-property-decorator"
 import { Getter, Action } from "vuex-class"
-import { ${capPirName}Data } from '@/pages/views/${dirName}.interface'
+import { ${capPirName}Data } from './${dirName}.interface'
 // import {  } from "@/components" // 组件
 
 @Component({})
@@ -55,10 +55,6 @@ export default class About extends Vue {
     //
   }
   
-  activated() {
-    //
-  }
-
   mounted() {
     //
   }
@@ -96,7 +92,7 @@ export interface ${capPirName}State {
 `
 
 // vuex 模版
-const vuexTep = `import { ${capPirName}State } from '@/pages/views/${dirName}.interface'
+const vuexTep = `import { ${capPirName}State } from '@/pages/views/${dirName}/${dirName}.interface'
 import { GetterTree, MutationTree, ActionTree } from 'vuex'
 import * as ${capPirName}Api from '@/api/${dirName}'
 
@@ -115,6 +111,7 @@ const mutations: MutationTree<${capPirName}State> = {
   UPDATE_STATE(state: ${capPirName}State, data: ${capPirName}State) {
     for (const key in data) {
       if (!data.hasOwnProperty(key)) { return }
+       // @ts-ignore
       state[key] = data[key]
     }
   }
@@ -141,7 +138,7 @@ export default {
 // api 接口模版
 const apiTep = `import Api from '@/utils/request'
 
-export const getData = (data) => {
+export const getData = (data:any) => {
   return Api.getData(data)
 }
 
@@ -150,12 +147,13 @@ export const getData = (data) => {
 fs.mkdirSync(`${basePath}/pages/views/${dirName}`) // mkdir
 
 process.chdir(`${basePath}/pages/views/${dirName}`) // cd views
-fs.writeFileSync(`${dirName}.vue`, VueTep) // vue 
+fs.writeFileSync(`${dirName}.vue`, VueTep) // vue
 fs.writeFileSync(`${dirName}.ts`, tsTep) // ts
 fs.writeFileSync(`${dirName}.scss`, scssTep) // scss
-
-process.chdir(`${basePath}/pages/views`); // cd pages
 fs.writeFileSync(`${dirName}.interface.ts`, interfaceTep) // interface
+
+// process.chdir(`${basePath}/pages/views`); // cd pages
+// fs.writeFileSync(`${dirName}.interface.ts`, interfaceTep) // interface
 
 process.chdir(`${basePath}/store/module`); // cd store
 fs.writeFileSync(`${dirName}.ts`, vuexTep) // vuex

@@ -35,16 +35,16 @@ export default [
             title: 'login'
         }
     },
-    // {
-    //     path: '/login',
-    //     name: 'login',
-    //     component: () => import('../pages/views/login/login.vue'),
-    //     meta: {
-    //         icon: '',
-    //         keepAlive: true,
-    //         title: 'login'
-    //     }
-    // },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('../pages/views/login/login.vue'),
+        meta: {
+            icon: '',
+            keepAlive: true,
+            title: 'login'
+        }
+    },
     // {
     //     path: '/index',
     //     name: 'index',

@@ -17,6 +17,7 @@ const mutations: MutationTree<Test2State> = {
   UPDATE_STATE(state: Test2State, data: Test2State) {
     for (const key in data) {
       if (!data.hasOwnProperty(key)) { return }
+      // @ts-ignore
       state[key] = data[key]
     }
   }

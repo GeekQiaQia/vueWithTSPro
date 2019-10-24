@@ -4,7 +4,7 @@
  *
  * */
 import {Component, Emit, Vue,Prop,Watch } from "vue-property-decorator"
-import { Getter, Action } from "vuex-class"
+//import { Getter, Action } from "vuex-class"
 import { Test2Data } from '@/pages/views/test2.interface'
 // import {  } from "@/components" // 组件
 
@@ -86,7 +86,7 @@ export default class About extends Vue {
   created() {
     //
   }
-  
+
   activated() {
     //
   }
