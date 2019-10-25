@@ -34,7 +34,7 @@
 
 <script lang="ts" src="./login.ts"></script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   /*@import '../../../assets/scss/common.scss';*/
   @import './login.scss';
 </style>

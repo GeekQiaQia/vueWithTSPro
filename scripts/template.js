@@ -26,7 +26,7 @@ const VueTep = `<template>
 
 <script lang="ts" src="./${dirName}.ts"></script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import './${dirName}.scss'
 </style>
 
