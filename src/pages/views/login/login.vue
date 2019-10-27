@@ -9,21 +9,25 @@
       <span>登录</span>
       </div>
     </div>
-    <div class="box">
-      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="loginForm">
-        <el-form-item  label="用户名" prop="username">
-          <el-input type="text" class="input326"  placeholder="请输入用户名" v-model="ruleForm.username" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item  label="密码" prop="password">
-          <el-input type="password" class="input326" placeholder="请输入密码" v-model="ruleForm.password" autocomplete="off"></el-input>
-        </el-form-item>
+<!--    <div class="box">-->
 
-        <el-form-item>
-          <el-button  class="btn confirm" @click="submitForm('ruleForm')">登录</el-button>
-          <el-button  class="btn reset" @click="resetForm('ruleForm')">重置</el-button>
-        </el-form-item>
-      </el-form>
-    </div>
+<!--    </div>-->
+      <LoginHeader>
+          <h3 class="title" slot="title">账户密码登录</h3>
+          <el-form slot="container" :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="loginForm">
+              <el-form-item  label="用户名" prop="username">
+                  <el-input type="text" class="input326"  placeholder="请输入用户名" v-model="ruleForm.username" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item  label="密码" prop="password">
+                  <el-input type="password" class="input326" placeholder="请输入密码" v-model="ruleForm.password" autocomplete="off"></el-input>
+              </el-form-item>
+
+              <el-form-item>
+                  <el-button  class="btn confirm" @click="submitForm('ruleForm')">登录</el-button>
+                  <el-button  class="btn reset" @click="resetForm('ruleForm')">重置</el-button>
+              </el-form-item>
+          </el-form>
+      </LoginHeader>
     <div class="content-container-right">
         <img src="../../../assets/images/word.jpg">
     </div>

@@ -2,9 +2,9 @@ import { Component, Vue } from "vue-property-decorator"
 import { Getter, Action } from "vuex-class"
 import { LoginData } from './login.interface'
 import { Form as ElForm } from 'element-ui';
-// import {  } from "@/components" // 组件
+import LoginHeader from "@/pages/components/loginHeader.vue" // 组件
 
-@Component({})
+@Component({components:{LoginHeader}})
 export default class About extends Vue {
   // Getter
   // @Getter author
