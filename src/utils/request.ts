@@ -5,21 +5,29 @@
  * @IDE WebStorm
  */
 import axios, { AxiosResponse, AxiosRequestConfig } from 'axios'
+// 导入请求配置；
 import { MAINHOST, ISMOCK, conmomPrams } from '../config'
+// 请求配置；
 import requestConfig from '../config/requestConfig'
+// 获取token方法；
 import { getToken } from '../utils/common'
+// 导入当前路由
 import router from '@/router'
-
+// 声明方法 Methods;
 declare type Methods = "GET" | "OPTIONS" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT"
+// 声明 Datas 接口；method:非必须参数；可选属性
 declare interface Datas {
     method?: Methods
     [key: string]: any
 }
+// 获取baseURL;
 const baseURL = process.env.NODE_ENV === 'production' ? MAINHOST : location.origin
-const token = getToken()
-
+// 获取token;
+const token = getToken();
+// 封装一个htttp请求类；
 class HttpRequest {
     public queue: any // 请求的url集合
+    // 结构初始化
     public constructor() {
         this.queue = {}
     }
@@ -49,6 +57,7 @@ class HttpRequest {
                 this.destroy(url)
             }
             const { data, status } = res
+            console.log(ISMOCK,data);
             if (status === 200 && ISMOCK) { return data } // 如果是mock数据，直接返回
             if (status === 200 && data && data.code === 0) { return data } // 请求成功
             return requestFail(res) // 失败回调
@@ -59,6 +68,7 @@ class HttpRequest {
             console.error(error)
         })
     }
+
     async request(options: AxiosRequestConfig) {
         const instance = axios.create()
         await this.interceptors(instance, options.url)
@@ -81,7 +91,8 @@ const requestFail = (res: AxiosResponse) => {
         })
     }
 }
-
+// 请求的本机地址+端口；
+console.log(baseURL);
 // 合并axios参数
 const conbineOptions = (_opts: any, data: Datas, method: Methods): AxiosRequestConfig => {
     let opts = _opts
@@ -109,10 +120,11 @@ const Api = (() => {
     const requestList: any = requestConfig
     const fun = (opts: AxiosRequestConfig | string) => {
         return async (data = {}, method: Methods = "GET") => {
-            if (!token) {
-                console.error('No Token')
-                return router.replace({ name: 'login' })
-            }
+           // 暂时不考虑token;
+            // if (!token) {
+            //     console.error('No Token')
+            //     return router.replace({ name: 'login' })
+            // }
             const newOpts = conbineOptions(opts, data, method)
             const res = await HTTP.request(newOpts)
             return res

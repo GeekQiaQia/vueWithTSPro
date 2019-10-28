@@ -8,12 +8,12 @@
 /**
  * 线上环境
  */
-export const ONLINEHOST: string = 'https://xxx.com'
+export const ONLINEHOST: string = 'http://10.10.29.26:8882'
 
 /**
  * 测试环境
  */
-export const QAHOST: string = 'http://xxx.com'
+export const QAHOST: string = 'http://10.10.29.26:8882'
 
 /**
  * 线上mock
@@ -28,7 +28,7 @@ export const ISMOCK: boolean = false
 /**
  * 当前的host  ONLINEHOST | QAHOST | MOCKHOST
  */
-export const MAINHOST: string = ONLINEHOST
+export const MAINHOST: string = QAHOST;
 
 /**
  * 请求的公共参数

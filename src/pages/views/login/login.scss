@@ -20,6 +20,25 @@
      margin: 0px auto 40px auto;
      text-align: center;
      color: #505458;
+     .active{
+        color:#333;
+        font-weight:700;
+        cursor:default;
+     }
+     .tab-password-login{
+       &:after{
+         width:1px;
+         height:100%;
+         display:block;
+         content:"";
+         position:absolute;
+         right:0;
+         top:0;
+         background-color:#e5e5e5;
+
+
+       }
+     }
    }
    //.loginForm{
    //  margin-top: 78px;

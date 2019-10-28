@@ -1,6 +1,8 @@
 import Api from '@/utils/request'
 
-export const getData = (data:any) => {
-  return Api.getData(data)
-}
+const getLoginData = (data:any) => {
+  return Api.post("/rest/login",JSON.stringify(data))
+};
+
+export default  getLoginData;
 
