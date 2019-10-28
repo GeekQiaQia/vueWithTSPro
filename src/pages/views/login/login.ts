@@ -1,4 +1,4 @@
-import {Component, Vue} from "vue-property-decorator"
+import {Component, Provide, Vue} from "vue-property-decorator"
 import {LoginData} from './login.interface'
 import {Form as ElForm} from 'element-ui';
 import LoginHeader from "@/pages/components/loginHeader.vue" // 组件
@@ -15,7 +15,10 @@ export default class About extends Vue {
   data: LoginData = {
     pageName: 'login'
   };
+  @Provide()
+  isLoading:boolean=false;
 
+  @Provide()
   ruleForm:Object={
     username:"",
     password:""
@@ -49,11 +52,23 @@ export default class About extends Vue {
       if (valid) {
         console.log(this.ruleForm);
         let reqData:Object=this.ruleForm;
-        let promise = getLoginData(reqData)
+        this.isLoading=true;
+        (this as any).$axios.post("/api/users/login",reqData)
             .then((res: any)=>{
               console.log(res);
+              this.isLoading=false;
+              if(res&&res.data.code===200){
+                // 登录成功后存储token;
+                localStorage.setItem('tsToken',res.data.token)
+              }
+
             })
             .catch((err:any)=>{
+              this.$message({
+                type:"error",
+                message:"err"
+              });
+              this.isLoading=false;
 
             });
       } else {

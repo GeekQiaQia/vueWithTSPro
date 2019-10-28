@@ -32,8 +32,26 @@ module.exports = {
         sourceMap: false, // 开启 CSS source maps?
         loaderOptions: {} // css预设器配置项
     },
+    // 开启反向代理
     devServer: {
+        open:true,
+        host:'localhost',
         port: 8080, // 端口
-        proxy: 'https://www.easy-mock.com' // 设置代理
+        https:false,
+        hotOnly:false,
+        // 跨域设置
+        proxy: {
+         // 配置跨域
+
+            '/api':{
+                //target:'https://www.easy-mock.com', // 设置代理
+                target:'https://vuets-api.herokuapp.com/api/',
+                ws:true,
+                changeOrigin:true,
+                pathRewrite:{
+                    '^/api':''
+                }
+            }
+        }
     }
 }

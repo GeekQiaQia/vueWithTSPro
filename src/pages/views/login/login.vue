@@ -27,7 +27,7 @@
               </el-form-item>
 
               <el-form-item>
-                  <el-button  class="btn confirm" @click="submitForm('ruleForm')">登录</el-button>
+                  <el-button :loading="isLoading" class="btn confirm" @click="submitForm('ruleForm')">登录</el-button>
                   <el-button  class="btn reset" @click="resetForm('ruleForm')">重置</el-button>
               </el-form-item>
           </el-form>
