@@ -2,7 +2,7 @@ import {Component, Provide, Vue} from "vue-property-decorator"
 import {LoginData} from './login.interface'
 import {Form as ElForm} from 'element-ui';
 import LoginHeader from "@/pages/components/loginHeader.vue" // 组件
-import {toLogin} from '../../../api/index'
+import {toLogin} from '@/api'
 @Component({components:{LoginHeader}})
 export default class About extends Vue {
   // Getter

@@ -45,6 +45,16 @@ export default [
             title: 'login'
         }
     },
+    {
+        path: '/register',
+        name: 'register',
+        component: () => import('../pages/views/regist/regist.vue'),
+        meta: {
+            icon: '',
+            keepAlive: true,
+            title: 'register'
+        }
+    },
     // {
     //     path: '/index',
     //     name: 'index',

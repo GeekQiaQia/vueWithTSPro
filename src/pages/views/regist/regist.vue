@@ -7,6 +7,6 @@
 <script lang="ts" src="./regist.ts"></script>
 
 <style lang="scss" scoped>
-  @import './regist.scss'
+  @import './regist.scss';
 </style>
 
