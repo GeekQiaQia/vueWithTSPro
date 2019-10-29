@@ -1,9 +1,9 @@
 import { LoginState } from '@/pages/views/login/login.interface'
 import { GetterTree, MutationTree, ActionTree } from 'vuex'
-import * as LoginApi from '@/api/login'
+
 
 const state: LoginState = {
-  author: '三毛'
+  author: 'newVuex'
 }
 
 // 强制使用getter获取state

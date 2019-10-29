@@ -2,7 +2,7 @@ import {Component, Provide, Vue} from "vue-property-decorator"
 import {LoginData} from './login.interface'
 import {Form as ElForm} from 'element-ui';
 import LoginHeader from "@/pages/components/loginHeader.vue" // 组件
-import getLoginData from '../../../api/login'
+import {toLogin} from '../../../api/index'
 @Component({components:{LoginHeader}})
 export default class About extends Vue {
   // Getter
@@ -53,7 +53,8 @@ export default class About extends Vue {
         console.log(this.ruleForm);
         let reqData:Object=this.ruleForm;
         this.isLoading=true;
-        (this as any).$axios.post("/api/users/login",reqData)
+        // (this as any).$axios.post("/api/rest/login",reqData)
+        toLogin(reqData)
             .then((res: any)=>{
               console.log(res);
               this.isLoading=false;

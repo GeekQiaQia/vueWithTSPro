@@ -45,7 +45,8 @@ module.exports = {
 
             '/api':{
                 //target:'https://www.easy-mock.com', // 设置代理
-                target:'https://vuets-api.herokuapp.com/api/',
+               // target:'https://vuets-api.herokuapp.com/api/',
+                target:'http://10.10.29.26:8882',
                 ws:true,
                 changeOrigin:true,
                 pathRewrite:{

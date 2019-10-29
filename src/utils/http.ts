@@ -7,15 +7,16 @@
  * */
 
 import axios,{AxiosResponse,AxiosRequestConfig} from "axios";
+
 import router from "@/router/router";
-
+// 默认携带cookie;
+axios.defaults.withCredentials = true;
 // 创建请求实例；
-
 const service=axios.create({
 
-    timeout:30000  // 设置请求的超时时间；
-
-})
+    timeout:30000,  // 设置请求的超时时间；
+    headers:{ 'Content-Type': 'application/json;charset=UTF-8' }
+});
 
 // 请求拦截器；
 service.interceptors.request.use((config:AxiosRequestConfig) => {
@@ -72,6 +73,6 @@ service.interceptors.response.use((response:AxiosResponse) => {
 
     });
 
-// 导出当期的service 对象；
+// 导出当前的service 对象；
 
 export default  service;

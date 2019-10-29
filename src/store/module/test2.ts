@@ -1,9 +1,9 @@
 import { Test2State } from '@/pages/views/test2.interface'
 import { GetterTree, MutationTree, ActionTree } from 'vuex'
-import * as Test2Api from '@/api/test2'
+
 
 const state: Test2State = {
-  author: '三毛'
+  author: 'newVuex'
 }
 
 // 强制使用getter获取state

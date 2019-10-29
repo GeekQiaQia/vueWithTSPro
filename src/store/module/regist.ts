@@ -1,19 +1,19 @@
-import { HomeState } from '@/pages/views/home/home.interface'
+import { RegistState } from '@/pages/views/regist/regist.interface'
 import { GetterTree, MutationTree, ActionTree } from 'vuex'
 
-const state: HomeState = {
+const state: RegistState = {
   author: 'newVuex'
 }
 
 // 强制使用getter获取state
-const getters: GetterTree<HomeState, any> = {
-  author: (state: HomeState) => state.author
+const getters: GetterTree<RegistState, any> = {
+  author: (state: RegistState) => state.author
 }
 
 // 更改state
-const mutations: MutationTree<HomeState> = {
+const mutations: MutationTree<RegistState> = {
   // 更新state都用该方法
-  UPDATE_STATE(state: HomeState, data: HomeState) {
+  UPDATE_STATE(state: RegistState, data: RegistState) {
     for (const key in data) {
       if (!data.hasOwnProperty(key)) { return }
        // @ts-ignore
@@ -22,12 +22,12 @@ const mutations: MutationTree<HomeState> = {
   }
 }
 
-const actions: ActionTree<HomeState, any> = {
-  UPDATE_STATE_ASYN({ commit, state: HomeState }, data: HomeState) {
+const actions: ActionTree<RegistState, any> = {
+  UPDATE_STATE_ASYN({ commit, state: RegistState }, data: RegistState) {
     commit('UPDATE_STATE', data)
   },
   // GET_DATA_ASYN({ commit, state: LoginState }) {
-  //   Home.getData()
+  //   Regist.getData()
   // }
 }
 

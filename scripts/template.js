@@ -94,10 +94,10 @@ export interface ${capPirName}State {
 // vuex 模版
 const vuexTep = `import { ${capPirName}State } from '@/pages/views/${dirName}/${dirName}.interface'
 import { GetterTree, MutationTree, ActionTree } from 'vuex'
-import * as ${capPirName}Api from '@/api/${dirName}'
+//import * as ${capPirName}Api from '@/api/${dirName}'
 
 const state: ${capPirName}State = {
-  author: '三毛'
+  author: 'newVuex'
 }
 
 // 强制使用getter获取state
@@ -135,7 +135,7 @@ export default {
 
 `
 
-// api 接口模版
+// *****暂时去掉api 接口模版 屏蔽这种组织方式*********
 const apiTep = `import Api from '@/utils/request'
 
 export const getData = (data:any) => {
@@ -158,7 +158,8 @@ fs.writeFileSync(`${dirName}.interface.ts`, interfaceTep) // interface
 process.chdir(`${basePath}/store/module`); // cd store
 fs.writeFileSync(`${dirName}.ts`, vuexTep) // vuex
 
-process.chdir(`${basePath}/api`); // cd api
-fs.writeFileSync(`${dirName}.ts`, apiTep) // api
+// *******暂时去掉单个文件api这种组织方式；*************
+// process.chdir(`${basePath}/api`); // cd api
+// fs.writeFileSync(`${dirName}.ts`, apiTep) // api
 
 process.exit(0)
