@@ -28,8 +28,8 @@ const VueTep = `<template>
 <script lang="ts">
   import { Component, Vue, Prop } from "vue-property-decorator"
   import { Getter, Action } from 'vuex-class'
-  import { ${capPirName}Data } from '@/types/components/${dirName}.interface'
-  // import {  } from "@/components" // 组件
+  import { ${capPirName}Data } from './${dirName}.interface'
+  // import {  } from "./components" // 组件
 
   @Component({})
   export default class About extends Vue {
@@ -60,7 +60,7 @@ const VueTep = `<template>
 </script>
 
 <style lang="scss">
-  @import "@/assets/scss/variables.scss";
+  @import "../../../assets/scss/variables.scss";
 
   .${dirName}-wrap {
     width: 100%;
@@ -77,12 +77,13 @@ export interface ${capPirName}Data {
 
 `
 
-fs.mkdirSync(`${basePath}/components/${dirName}`) // mkdir
+fs.mkdirSync(`${basePath}/pages/components/${dirName}`) // mkdir
 
-process.chdir(`${basePath}/components/${dirName}`) // cd views
-fs.writeFileSync(`${dirName}.vue`, VueTep) // vue 
+process.chdir(`${basePath}/pages/components/${dirName}`) // cd views
+fs.writeFileSync(`${dirName}.vue`, VueTep) // vue
+fs.writeFileSync(`${dirName}.interface.ts`, interfaceTep) // interface
 
-process.chdir(`${basePath}/types/components`) // cd components
-fs.writeFileSync(`${dirName}.interface.ts`, interfaceTep) // interface 
+// process.chdir(`${basePath}/pages/components`) // cd components
+// fs.writeFileSync(`${dirName}.interface.ts`, interfaceTep) // interface
 
 process.exit(0)

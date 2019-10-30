@@ -3,10 +3,10 @@
   <div class="login-wrap">
 
     <div class="header">
-      <a class="header-logo" href="https://cn.vuejs.org/v2/api/#key"></a>
+        <router-link class="header-logo" to="/home"></router-link>
       <div class="header-title">
 <!--        {{data.pageName}}-->
-      <span>登录</span>
+      <span>{{data.pageName}}</span>
       </div>
     </div>
 <!--    <div class="box">-->
