@@ -107,10 +107,11 @@
         justify-content: center;
         align-items: center;
         .logo{
-          width: 109px;
-          height: 25px;
-          background: url(../../../assets/logo.png) no-repeat 0 0;
+          width: 118px;
+          height: 70px;
+          background: url(../../../assets/bicycle.svg) no-repeat 0 0;
           background-size: contain;
+
         }
         .search{
           position: relative;
