@@ -5,11 +5,18 @@
 }
 body {
   margin: 0;
-  background-color: #f8f6f6;
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
   'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
+
+  background: #353535;
+  background-size: 1600px 1180px;
+  color: #fff;
+  /* min-height: calc(100vh - 645px); */
+  overflow-y: scroll;
+  /* padding-bottom: 645px; */
+  position: relative;
 }
 
 html,

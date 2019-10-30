@@ -2,13 +2,7 @@
 <div>
   <div class="login-wrap">
 
-    <div class="header">
-        <router-link class="header-logo" to="/home"></router-link>
-      <div class="header-title">
-<!--        {{data.pageName}}-->
-      <span>{{data.pageName}}</span>
-      </div>
-    </div>
+      <Head></Head>
 <!--    <div class="box">-->
 
 <!--    </div>-->

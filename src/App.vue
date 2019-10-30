@@ -1,14 +1,29 @@
 <template>
   <div id="app">
-    <keep-alive>
-      <router-view v-if="$route.meta.keepAlive"/>
-    </keep-alive>
-    <router-view v-if="!$route.meta.keepAlive"/>
+    <Header>
+
+    </Header>
+    <div class="page">
+      <keep-alive>
+        <router-view v-if="$route.meta.keepAlive"/>
+      </keep-alive>
+      <router-view v-if="!$route.meta.keepAlive"/>
+    </div>
   </div>
 </template>
+<script lang="ts" >
+  import {Component, Provide, Vue} from "vue-property-decorator"
+  import Header from "@/pages/components/header/header.vue" // 组件
+  import {toLogin} from '@/api'
+  @Component({components:{Header}})
+  export default class App extends Vue {}
+
+
+</script>
 
 <style lang="scss">
   @import "./assets/scss/main.scss";
+
 /*#app {*/
 /*  font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
 /*  -webkit-font-smoothing: antialiased;*/
@@ -26,4 +41,10 @@
     }
   }
 }
+  .page{
+    position:relative;
+    box-sizing: border-box;
+    height: auto !important;
+    padding: 68px 0 0 0;
+  }
 </style>
