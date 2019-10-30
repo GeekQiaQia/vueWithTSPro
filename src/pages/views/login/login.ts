@@ -1,5 +1,5 @@
 import {Component, Provide, Vue} from "vue-property-decorator"
-import {LoginData} from './login.interface'
+import {LoginData,RuleForm} from './login.interface'
 import {Form as ElForm} from 'element-ui';
 import LoginHeader from "@/pages/components/loginHeader.vue" // 组件
 import {toLogin} from '@/api'
@@ -15,11 +15,10 @@ export default class About extends Vue {
   data: LoginData = {
     pageName: 'login'
   };
-  @Provide()
   isLoading:boolean=false;
 
-  @Provide()
-  ruleForm:Object={
+
+  ruleForm:RuleForm={
     username:"",
     password:""
   };

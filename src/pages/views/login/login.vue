@@ -31,7 +31,14 @@
                   <el-button  class="btn reset" @click="resetForm('ruleForm')">重置</el-button>
               </el-form-item>
           </el-form>
+          <div  slot="extra" class="form-extra-group">
+              <div class="pull-right">
+                  <router-link to="/register">免费注册</router-link>
+              </div>
+
+          </div>
       </LoginHeader>
+      <!--扫码登录-->
       <LoginHeader v-else-if="!loginWay">
           <ul class="title" slot="title">
               <li  class=" active tab-scan-login" @click="changeTab">扫码登录</li>
@@ -58,6 +65,12 @@
                           </li>
                       </ul>
                   </div>
+              </div>
+              <div  slot="extra" class="form-extra-group">
+                  <div class="pull-right">
+                      <router-link to="/register">免费注册</router-link>
+                  </div>
+
               </div>
 
           </div>

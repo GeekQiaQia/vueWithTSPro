@@ -76,7 +76,15 @@ const scssTep = `@import "../../../assets/scss/variables.scss";
 `
 
 // interface 模版
-const interfaceTep = `// ${dirName}.Data 参数类型
+
+const interfaceTep = `
+/***
+ * @description:
+ *  在面向对象语言中，接口（Interfaces）是一个很重要的概念，
+ * 它是对行为的抽象，而具体如何行动需要由类（classes）去实现（implements）
+ * */
+ 
+// ${dirName}.Data 参数类型
 export interface ${capPirName}Data {
   pageName: string
 }

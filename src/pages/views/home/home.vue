@@ -7,6 +7,6 @@
 <script lang="ts" src="./home.ts"></script>
 
 <style lang="scss">
-  @import './home.scss'
+  @import './home.scss';
 </style>
 

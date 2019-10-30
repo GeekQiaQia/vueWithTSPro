@@ -68,8 +68,8 @@
     width: 70px;
     height: 41px;
     position: relative;
-    background: url(../../../assets/logo.png) no-repeat;
-    background-size: cover;
+    background: url(../../../assets/images/timg.jpg) no-repeat;
+    background-size: 100% 100% ;
   }
   .header-title{
     position: relative;
@@ -82,6 +82,19 @@
   }
 }
 
+.form-extra-group{
+  margin-top: 20px;
+  color: #666666;
+  .pull-right{
+    position:relative;
+    float: right;
+    a{
+      font-size: 12px;
+      color: #38f;
+      cursor: pointer;
+    }
+  }
+}
 .input264 {
   width: 264px;
   height:30px;

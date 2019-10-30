@@ -15,7 +15,9 @@
 
             </slot>
         </div>
+        <slot name="extra">
 
+        </slot>
     </div>
 
 </template>
