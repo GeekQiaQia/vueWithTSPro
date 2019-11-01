@@ -39,7 +39,7 @@ import { ${capPirName}Data } from './${dirName}.interface'
 // import {  } from "@/components" // 组件
 
 @Component({})
-export default class About extends Vue {
+export default class ${dirName} extends Vue {
   // Getter
   // @Getter author
   

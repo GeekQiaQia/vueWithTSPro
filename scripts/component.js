@@ -32,7 +32,7 @@ const VueTep = `<template>
   // import {  } from "./components" // 组件
 
   @Component({})
-  export default class About extends Vue {
+  export default class ${dirName} extends Vue {
     // prop
     @Prop({
       required: false,
