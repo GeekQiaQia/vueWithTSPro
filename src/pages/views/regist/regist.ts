@@ -3,9 +3,9 @@ import { Getter, Action } from "vuex-class"
 import { RegistData ,RuleForm } from './regist.interface'
 import {Form as ElForm} from "element-ui";
 import {toRegist} from "@/api";
-// import {  } from "@/components" // 组件
+ import Head from "@/pages/components/head/head.vue" // 组件
 
-@Component({})
+@Component({components:{Head}})
 export default class regist extends Vue {
   // Getter
   // @Getter author

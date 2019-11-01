@@ -45,7 +45,10 @@ npm run test:e2e
 ```
 npm run test:unit
 ```
-
+### 生成components 文件夹下的组件模板； ‘comName’ 是组件名称
+    npm run comp comName
+### 生成views 文件夹下的模块模板  'tempName'是生成模板的文件名称
+    npm run temp  tempName
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 

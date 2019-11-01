@@ -3,33 +3,33 @@
 <!--    <img alt="Vue logo" src="../../assets/logo.png">-->
 <!--    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>-->
 <!--    <h1>test</h1>-->
-    <div class="header">
-      <div class="tool-bar">
-        <router-link to="/login">登录</router-link>|
-        <router-link to="/about">关于</router-link>
-      </div>
-      <div class="head-box">
-        <div class="header-left">
-          <div>爱生活</div>
-        </div>
-        <div class="header-right">
-          <div class="search-container">
-            <el-input placeholder="请输入内容" v-model="searchText" class="input-with-select">
-              <el-button slot="append" icon="el-icon-search"></el-button>
-            </el-input>
-          </div>
-        </div>
-      </div>
-      <div class="nav">
-          <ul class="cate">
-            <li class="font16">首页</li>
-            <li class="font16">存款</li>
-            <li class="font16">授信</li>
-            <li class="font16">理财</li>
-            <li class="font16">信用卡</li>
-          </ul>
-      </div>
-    </div>
+<!--    <div class="header">-->
+<!--&lt;!&ndash;      <div class="tool-bar">&ndash;&gt;-->
+<!--&lt;!&ndash;        <router-link to="/login">登录</router-link>|&ndash;&gt;-->
+<!--&lt;!&ndash;        <router-link to="/about">关于</router-link>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="head-box">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="header-left">&ndash;&gt;-->
+<!--&lt;!&ndash;          <div>爱生活</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="header-right">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          <div class="search-container">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <el-input placeholder="请输入内容" v-model="searchText" class="input-with-select">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;              <el-button slot="append" icon="el-icon-search"></el-button>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            </el-input>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;          </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--      <div class="nav">-->
+<!--          <ul class="cate">-->
+<!--            <li class="font16">首页</li>-->
+<!--            <li class="font16">存款</li>-->
+<!--            <li class="font16">授信</li>-->
+<!--            <li class="font16">理财</li>-->
+<!--            <li class="font16">信用卡</li>-->
+<!--          </ul>-->
+<!--      </div>-->
+<!--    </div>-->
     <div class="content">
 
     </div>
