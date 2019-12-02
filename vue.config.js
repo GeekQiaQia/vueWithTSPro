@@ -19,6 +19,7 @@ module.exports = {
     assetsDir: '', // 放置生成的静态资源路径，默认在outputDir
     indexPath: 'index.html', // 指定生成的 index.html 输入路径，默认outputDir
     pages: undefined, // 构建多页
+    lintOnSave:false, // 暂时关闭tslint 规范检测；
     productionSourceMap: false, // 开启 生产环境的 source map?
     chainWebpack: config => {
         // 配置路径别名
