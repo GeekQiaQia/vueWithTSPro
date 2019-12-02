@@ -42,7 +42,14 @@
               <div class="step-1">
                   <div class="qrcode-box">
                         <div style="width: inherit;height: inherit">
-                            <img  class="qrcode-img" src="../../../assets/images/qrcode.jpg" alt="">
+                            <div  key="qrCode" style="text-align: center;">
+                                <div   id="qrcode" ref="qrcode"  class="scan-code">
+                                    <div v-if="qrcodeCancel">
+                                        <div style="margin-top: 27px;"><span class="qrcode-restart"> 二维码已失效</span></div>
+                                        <div style="margin-top: 27px;"> <el-button class="btn confirm " style="width: 101px ;height:25px;" @click="handleClickRestart" >点击刷新</el-button><br></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                   </div>
                   <div class="platform">
@@ -64,9 +71,7 @@
                   <div class="pull-right">
                       <router-link to="/register">免费注册</router-link>
                   </div>
-
               </div>
-
           </div>
 
       </LoginHeader>

@@ -12,4 +12,5 @@ import axios from '../utils/http'
 
 export const toLogin =(params:any)=>{return axios.post("/api/rest/login",params)};
 export const toRegist =(params:any)=>{return axios.post("/api/rest/regist",params)};
+export const qrcodeLoginCheck =(params:any)=>{return axios.post("/api/rest/qrcodeLoginCheck",params)};
 

@@ -1,9 +1,11 @@
-import {Component, Provide, Vue} from "vue-property-decorator"
+import {Component, Emit, Provide, Vue} from "vue-property-decorator"
 import {LoginData,RuleForm} from './login.interface'
 import {Form as ElForm} from 'element-ui';
 import LoginHeader from "@/pages/components/loginHeader.vue" // 组件
 import Head from "@/pages/components/head/head.vue" // 组件
-import {toLogin} from '@/api'
+import {toLogin,qrcodeLoginCheck} from '@/api'
+// @ts-ignore
+import QRCode from 'qrcodejs2'
 // @ts-ignore
 import md5 from 'js-md5'
 @Component({components:{LoginHeader,Head}})
@@ -18,9 +20,9 @@ export default class About extends Vue {
   data: LoginData = {
     pageName: 'login'
   };
-  isLoading:boolean=false;
+    isLoading:boolean=false;
     checked:boolean=false;
-
+    qrcodeLink:string="";
 
   ruleForm:RuleForm={
     username:"",
@@ -29,6 +31,8 @@ export default class About extends Vue {
 
   actived:boolean=true;
   loginWay:boolean=true;
+  qrcodeCancel:boolean=false;
+  loginSuccess:boolean=false;
 
   // @ts-ignore
   rules:Object={
@@ -138,7 +142,7 @@ export default class About extends Vue {
         this.setCookie("", "", -1); //修改2值都为空，天数为负1天就好了
     }
 
-  public resetForm(formName:string) {
+    public resetForm(formName:string) {
     console.log(this);
     const ref = (this.$refs[formName] as ElForm);
     ref.resetFields();
@@ -151,7 +155,108 @@ export default class About extends Vue {
         pwd = md5(pwd);
         return <string>pwd;
     }
-  created() {
+
+    /**
+     * @description； 扫码登录，生成二维码
+     * */
+    public genereateQrCode () {
+        let qrcode = new QRCode('qrcode',{
+            width: 127, // 设置宽度，单位像素
+            height: 127, // 设置高度，单位像素
+            text: this.qrcodeLink // 设置二维码内容或跳转地址
+        })
+    }
+    /**
+     * @description: 点击重新获取登录二维码
+     * */
+    public async handleClickRestart():Promise<void>{
+        let timer:any;
+        let that=this;
+        that.qrcodeCancel=false;
+        // @ts-ignore
+        await qrcodeLoginApply()
+            .then((res:any)=>{
+                console.log(res);
+                // 生成最新的二维码标识；
+                this.qrcodeLink=res.data.qrcode;
+                // 开始监听
+                timer=setInterval( async function () {
+                    // @ts-ignore
+                    let qrcode=that.qrcodeLink.split("&")[1].split("=")[1]
+                    let reqData={qrcode:qrcode};
+                    if(that.loginWay===true){
+                        clearInterval(timer);
+                    }
+                    // 轮循检查扫码状态；
+                    await qrcodeLoginCheck(reqData)
+                        .then((res:any)=>{
+                            console.log(res);
+                            let responseCode=res.data.responseCode;
+                            if(responseCode===12591){
+                                that.loginSuccess=true;
+                            } else if(responseCode===12592){
+                                that.changeTips("success","登录成功");
+
+                                let yyttoken = res.headers.yyttoken;
+                                // 更改登录状态以及登录用户信息；
+                                // that.$store.dispatch("UPDATE_LOGIN_INFO_ASYN", {yyttoken});
+                                // that.$store.dispatch("UPDATE_USER_INFO_STATE_ASYN");
+                                clearInterval(timer);
+                                setTimeout(function () {
+                                    that.handleClose();
+                                },3000)
+
+                            }else if(responseCode===12593){
+                                that.changeTips("warning","二维码已失效");
+                                that.loginSuccess=false;
+                                that.qrcodeCancel=true;
+                                clearInterval(timer);
+                            }
+                        })
+                        .catch((err:any)=>{
+                            that.$message({
+                                type: "error",
+                                message: err
+                            });
+                        })
+                },2000)
+            })
+            .catch((err:any)=>{
+                this.$message({
+                    type: "error",
+                    message: err
+                });
+            })
+        // 下一个时间轮循执行生成二维码；
+        this.$nextTick(() => {
+            this.genereateQrCode()
+        });
+    }
+
+    /**
+     * @description: Emit() 发送事件；
+     *               监听close，发送事件名为close 的事件；
+     * */
+    @Emit('close')
+    handleClose():boolean{
+        this.loginWay=true;
+        this.loginSuccess=false;
+        return false;
+    }
+
+    /**
+     * @description: changeTips
+     * */
+    public changeTips(status:string,tips:string){
+        console.log(tips);
+        // @ts-ignore
+        this.$message({
+            type:status,
+            message: tips
+        });
+    }
+
+    created() {
     //
   }
 

@@ -76,6 +76,25 @@
                         height:152px;
                         position: relative;
                         margin: 0 auto;
+                        .scan-code{
+                            width:128px;
+                            height:127px;
+                            display: inline-block;
+                            border: 1px solid black;;
+                            &.qrcode-restart{
+                                font-size:16px;
+                                font-family:PingFang SC;
+                                font-weight:bold;
+                                color:rgba(0,0,0,1);
+                                line-height:18px;
+                                display: inline-block;
+                                margin-bottom: 27px;
+                            }
+                            img{
+                                vertical-align: middle;
+                                height: auto !important;
+                            }
+                        }
                         .qrcode-img{
                             display: block;
                             width:130px;
