@@ -27,9 +27,9 @@
           </el-form>
           <div  slot="extra" class="form-extra-group">
               <div class="pull-right">
+                  <el-checkbox class="save-password" v-model="checked">保存密码</el-checkbox>
                   <router-link to="/register">免费注册</router-link>
               </div>
-
           </div>
       </LoginHeader>
       <!--扫码登录-->
