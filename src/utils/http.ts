@@ -8,13 +8,25 @@
 
 import axios,{AxiosResponse,AxiosRequestConfig} from "axios";
 
-import router from "@/router/router";
+// 导入路由对象；执行router.push(); 路由操作；
+import router from '../router'
+// 导入vuex对象；store.dispatch(); 路由操作；
+import store from '../store'
 // 默认携带cookie;
 axios.defaults.withCredentials = true;
+if(process.env.VUE_APP_CURRENTMODE === 'test'){
+    axios.defaults.baseURL = "https://testbranch.geekqiaqia.com";
+} else if(process.env.VUE_APP_CURRENTMODE === 'uat'){     //add
+    axios.defaults.baseURL = "https://testuat.geekqiaqia.com";
+}else if(process.env.VUE_APP_CURRENTMODE === 'prod'){
+    axios.defaults.baseURL = "https://prod.geekqiaqia.com";
+}
+
 // 创建请求实例；
 const service=axios.create({
 
     timeout:30000,  // 设置请求的超时时间；
+    // headers:{ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }
     headers:{ 'Content-Type': 'application/json;charset=UTF-8' }
 });
 
@@ -45,8 +57,8 @@ service.interceptors.response.use((response:AxiosResponse) => {
                     errMessage = "登录状态失效，请重新登录"
                     //当token过期的时候，remove当前token;
                     localStorage.removeItem('tsToken');
-                    // @ts-ignore
-                    router.push('/login');
+                    store.dispatch("UPDATE_STATE_ASYN")
+                    router.push("/index");
                     break;
                 case 403:
                     errMessage = "拒绝访问"

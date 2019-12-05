@@ -6,6 +6,9 @@
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
+    "test": "vue-cli-service build --mode test",
+    "uat": "vue-cli-service build --mode uat",
+    "prod": "vue-cli-service build --mode prod",
     "temp": "node scripts/template",
     "comp": "node scripts/component",
     "lint": "vue-cli-service lint",
